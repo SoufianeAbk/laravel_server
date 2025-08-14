@@ -13,28 +13,37 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Get featured jerseys
+        // Get featured jerseys (limit to 4 for home page display)
         $featuredJerseys = Jersey::active()
             ->featured()
             ->with('category')
-            ->limit(8)
+            ->limit(4)
             ->get();
         
-        // Get latest jerseys
+        // Fallback: Get latest jerseys if no featured jerseys exist
+        if ($featuredJerseys->isEmpty()) {
+            $featuredJerseys = Jersey::active()
+                ->with('category')
+                ->orderBy('created_at', 'desc')
+                ->limit(4)
+                ->get();
+        }
+        
+        // Get latest jerseys for additional sections (optional)
         $latestJerseys = Jersey::active()
             ->with('category')
             ->orderBy('created_at', 'desc')
             ->limit(8)
             ->get();
         
-        // Get popular teams
-        $popularTeams = Jersey::active()
-            ->select('team')
-            ->distinct()
-            ->limit(12)
-            ->pluck('team');
+        // Get popular teams for the popular teams section
+        $popularTeams = [
+            'Real Madrid', 'Barcelona', 'Manchester United', 'Liverpool', 
+            'Bayern Munich', 'PSG', 'Juventus', 'Chelsea', 
+            'Manchester City', 'Arsenal', 'AC Milan', 'Inter Milan'
+        ];
         
-        // Get leagues
+        // Get leagues for the league filter section
         $leagues = [
             'Premier League',
             'La Liga',
@@ -44,10 +53,10 @@ class HomeController extends Controller
             'Champions League'
         ];
         
-        // Get categories
+        // Get categories (optional, for future use)
         $categories = Category::active()->get();
         
-        // Get some statistics for display
+        // Get some statistics for display (optional)
         $stats = [
             'total_jerseys' => Jersey::active()->count(),
             'total_teams' => Jersey::active()->distinct('team')->count('team'),
