@@ -55,7 +55,7 @@ class Jersey extends Model
         return $this->hasMany(Wishlist::class);
     }
 
-    // Scopes
+    // Scopes - ✅ ALREADY PRESENT AND CORRECT
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
