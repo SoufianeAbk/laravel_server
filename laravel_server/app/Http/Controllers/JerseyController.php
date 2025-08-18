@@ -63,7 +63,7 @@ class JerseyController extends Controller
         $teams = Jersey::active()->distinct('team')->pluck('team');
         $leagues = Jersey::active()->distinct('league')->pluck('league');
 
-        return view('jerseys.index', compact('jerseys', 'categories', 'teams', 'leagues'));
+        return view('Jersey.index', compact('jerseys', 'categories', 'teams', 'leagues'));
     }
 
     /**
