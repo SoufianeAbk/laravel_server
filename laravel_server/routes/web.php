@@ -8,6 +8,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::prefix('cart')->name('cart.')->group(function () {
 
 // Authentication required routes
 Route::middleware(['auth'])->group(function () {
+
     // Checkout
     Route::prefix('checkout')->name('checkout.')->group(function () {
         Route::get('/', [CheckoutController::class, 'index'])->name('index');
@@ -73,13 +75,41 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-// Static pages
+/*
+|--------------------------------------------------------------------------
+| Static Pages (with Contact form support)
+|--------------------------------------------------------------------------
+*/
+
+// About Us
 Route::view('/about', 'pages.about')->name('about');
-Route::view('/contact', 'pages.contact')->name('contact');
-Route::view('/terms', 'pages.terms')->name('terms');
-Route::view('/privacy', 'pages.privacy')->name('privacy');
+
+// Contact
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+Route::post('/contact', function (Request $request) {
+    $request->validate([
+        'first_name' => 'required|string|max:255',
+        'last_name'  => 'required|string|max:255',
+        'email'      => 'required|email',
+        'phone'      => 'nullable|string|max:20',
+        'subject'    => 'required|string',
+        'message'    => 'required|string|min:10',
+    ]);
+
+    // Example: send email or save to DB
+    // Mail::to('support@yourapp.com')->send(new ContactMessage($request->all()));
+
+    return redirect()->route('contact')->with('success', 'Thank you for your message! We will get back to you soon.');
+})->name('contact.send');
+
+// Customer Service Pages
 Route::view('/shipping', 'pages.shipping')->name('shipping');
 Route::view('/returns', 'pages.returns')->name('returns');
+Route::view('/terms', 'pages.terms')->name('terms');
+Route::view('/privacy', 'pages.privacy')->name('privacy');
 
 // Authentication routes (Laravel Breeze/Jetstream will handle these)
 require __DIR__.'/auth.php';
