@@ -290,7 +290,7 @@
             <hr class="my-4">
             
             <div class="text-center">
-                <p>&copy; 2024 JerseyShop. All rights reserved.</p>
+                <p>&copy; 2025 JerseyShop. All rights reserved.</p>
             </div>
         </div>
     </footer>
