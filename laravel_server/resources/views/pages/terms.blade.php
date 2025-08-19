@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-8 mx-auto">
             <h1 class="mb-4">Terms & Conditions</h1>
-            <p class="text-muted">Last updated: January 2024</p>
+            <p class="text-muted">Last updated: January 2025</p>
             
             <div class="card">
                 <div class="card-body">
