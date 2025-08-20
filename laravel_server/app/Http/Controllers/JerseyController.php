@@ -92,7 +92,7 @@ class JerseyController extends Controller
     public function featured()
     {
         $jerseys = Jersey::active()->featured()->paginate(12);
-        return view('jerseys.featured', compact('jerseys'));
+        return view('Jersey.featured', compact('jerseys'));
     }
 
     /**
