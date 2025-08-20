@@ -110,6 +110,10 @@ Route::view('/shipping', 'pages.shipping')->name('shipping');
 Route::view('/returns', 'pages.returns')->name('returns');
 Route::view('/terms', 'pages.terms')->name('terms');
 Route::view('/privacy', 'pages.privacy')->name('privacy');
+Route::view('/size-guide', 'pages.size-guide')->name('size-guide');
+
+// FAQ Page (if you want to add this too)
+Route::view('/faq', 'pages.faq')->name('faq');
 
 // Authentication routes (Laravel Breeze/Jetstream will handle these)
 require __DIR__.'/auth.php';
