@@ -57,7 +57,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF0000/FFFFFF?text=Man+United+Home" alt="Manchester United Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/premier-league/manchester-united-home-2024.jpg') }}" alt="Manchester United Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -77,13 +77,13 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/0066CC/FFFFFF?text=Man+City+Home" alt="Manchester City Home" class="img-fluid">
+                                <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/775078/01/dt04/fnd/PNA/fmt/png/Jersey-local-Adolescente-Manchester-City-24/25" alt="Manchester City Third" class="img-fluid" onerror="this.src='{{ asset('images/jerseys/premier-league/manchester-city-third-2024.jpg') }}'">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
                             </div>
                             <div class="jersey-info p-3">
-                                <h5>Manchester City Home</h5>
+                                <h5>Manchester City Third</h5>
                                 <p class="text-muted">2024-25 Season</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="price fw-bold text-danger">€89.99</span>
@@ -97,7 +97,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF1493/FFFFFF?text=Arsenal+Home" alt="Arsenal Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/premier-league/arsenal-home-2024.jpg') }}" alt="Arsenal Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -117,7 +117,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/034694/FFFFFF?text=Chelsea+Home" alt="Chelsea Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/premier-league/chelsea-home-2024.jpg') }}" alt="Chelsea Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -161,7 +161,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FFFFFF/FF0000?text=Real+Madrid+Home" alt="Real Madrid Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/la-liga/real-madrid-home-2024.jpg') }}" alt="Real Madrid Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -181,7 +181,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/004C99/FFD700?text=Barcelona+Home" alt="Barcelona Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/la-liga/barcelona-home-2024.jpg') }}" alt="Barcelona Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -201,13 +201,13 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF0000/FFFFFF?text=Atletico+Home" alt="Atletico Madrid Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/la-liga/atletico-madrid-away-2024.jpg') }}" alt="Atletico Madrid Away" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
                             </div>
                             <div class="jersey-info p-3">
-                                <h5>Atletico Madrid Home</h5>
+                                <h5>Atletico Madrid Away</h5>
                                 <p class="text-muted">2024-25 Season</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="price fw-bold text-danger">€84.99</span>
@@ -221,7 +221,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FFFFFF/000000?text=Sevilla+Home" alt="Sevilla Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/la-liga/sevilla-home-2024.jpg') }}" alt="Sevilla Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -265,7 +265,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/000000/FFFFFF?text=Juventus+Home" alt="Juventus Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/serie-a/juventus-home-2024.jpg') }}" alt="Juventus Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -285,7 +285,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/8B0000/FFD700?text=AC+Milan+Home" alt="AC Milan Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/serie-a/ac-milan-home-2024.jpg') }}" alt="AC Milan Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -305,7 +305,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/0066CC/000000?text=Inter+Milan+Home" alt="Inter Milan Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/serie-a/inter-milan-home-2024.jpg') }}" alt="Inter Milan Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -325,7 +325,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/87CEEB/000080?text=Napoli+Home" alt="Napoli Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/serie-a/napoli-home-2024.jpg') }}" alt="Napoli Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -369,7 +369,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/DC143C/FFFFFF?text=Bayern+Munich+Home" alt="Bayern Munich Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/bundesliga/bayern-munich-home-2024.jpg') }}" alt="Bayern Munich Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -389,7 +389,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FFD700/000000?text=Borussia+Dortmund+Home" alt="Borussia Dortmund Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/bundesliga/borussia-dortmund-home-2024.jpg') }}" alt="Borussia Dortmund Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -409,7 +409,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF0000/FFFFFF?text=RB+Leipzig+Home" alt="RB Leipzig Home" class="img-fluid">
+                                <img src="https://tse4.mm.bing.net/th/id/OIP.6QeV07-ama2U9aFcgv7xOgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="RB Leipzig Home" class="img-fluid" onerror="this.src='{{ asset('images/jerseys/bundesliga/rb-leipzig-home-2024.jpg') }}'">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -429,7 +429,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/000000/FFFFFF?text=Bayer+Leverkusen+Home" alt="Bayer Leverkusen Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/bundesliga/bayer-leverkusen-home-2024.jpg') }}" alt="Bayer Leverkusen Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -473,7 +473,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF1493/FFFFFF?text=PSG+Home" alt="PSG Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/ligue-1/psg-home-2024.jpg') }}" alt="PSG Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -493,7 +493,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/87CEEB/FFFFFF?text=Marseille+Home" alt="Marseille Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/ligue-1/marseille-home-2024.jpg') }}" alt="Marseille Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -513,7 +513,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF0000/000000?text=Lyon+Home" alt="Lyon Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/ligue-1/lyon-home-2024.jpg') }}" alt="Lyon Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>
@@ -533,7 +533,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="jersey-card">
                             <div class="jersey-image">
-                                <img src="https://via.placeholder.com/300x400/FF1493/000000?text=Monaco+Home" alt="Monaco Home" class="img-fluid">
+                                <img src="{{ asset('images/jerseys/ligue-1/monaco-home-2024.jpg') }}" alt="Monaco Home" class="img-fluid">
                                 <div class="jersey-overlay">
                                     <button class="btn btn-light btn-sm">Quick View</button>
                                 </div>

@@ -115,9 +115,68 @@
                         <div class="product-card h-100">
                             <div class="product-image-wrapper position-relative">
                                 <a href="{{ route('jerseys.show', $jersey->id) }}">
-                                    <img src="{{ $jersey->image_url }}" 
+                                    @php
+                                        // Generate fallback image based on team and league
+                                        $fallbackImage = '';
+                                        $league = strtolower(str_replace(' ', '-', $jersey->league));
+                                        $team = strtolower(str_replace([' ', '.'], ['-', ''], $jersey->team));
+                                        $type = strtolower($jersey->type);
+                                        
+                                        // Map team names to image files
+                                        $teamImageMap = [
+                                            'manchester-united' => 'manchester-united-home-2024.jpg',
+                                            'manchester-city' => 'manchester-city-third-2024.jpg',
+                                            'arsenal' => 'arsenal-home-2024.jpg',
+                                            'chelsea' => 'chelsea-home-2024.jpg',
+                                            'liverpool' => 'liverpool-away-2024.jpg',
+                                            'real-madrid' => 'real-madrid-home-2024.jpg',
+                                            'fc-barcelona' => 'barcelona-home-2024.jpg',
+                                            'barcelona' => 'barcelona-home-2024.jpg',
+                                            'atletico-madrid' => 'atletico-madrid-away-2024.jpg',
+                                            'sevilla-fc' => 'sevilla-home-2024.jpg',
+                                            'sevilla' => 'sevilla-home-2024.jpg',
+                                            'juventus' => 'juventus-home-2024.jpg',
+                                            'ac-milan' => 'ac-milan-home-2024.jpg',
+                                            'inter-milan' => 'inter-milan-home-2024.jpg',
+                                            'ssc-napoli' => 'napoli-home-2024.jpg',
+                                            'napoli' => 'napoli-home-2024.jpg',
+                                            'bayern-munich' => 'bayern-munich-home-2024.jpg',
+                                            'borussia-dortmund' => 'borussia-dortmund-home-2024.jpg',
+                                            'rb-leipzig' => 'rb-leipzig-home-2024.jpg',
+                                            'bayer-leverkusen' => 'bayer-leverkusen-home-2024.jpg',
+                                            'paris-saint-germain' => 'psg-home-2024.jpg',
+                                            'psg' => 'psg-home-2024.jpg',
+                                            'olympique-marseille' => 'marseille-home-2024.jpg',
+                                            'marseille' => 'marseille-home-2024.jpg',
+                                            'olympique-lyon' => 'lyon-home-2024.jpg',
+                                            'lyon' => 'lyon-home-2024.jpg',
+                                            'as-monaco' => 'monaco-home-2024.jpg',
+                                            'monaco' => 'monaco-home-2024.jpg',
+                                        ];
+                                        
+                                        // League folder mapping
+                                        $leagueMap = [
+                                            'premier-league' => 'premier-league',
+                                            'la-liga' => 'la-liga',
+                                            'serie-a' => 'serie-a',
+                                            'bundesliga' => 'bundesliga',
+                                            'ligue-1' => 'ligue-1',
+                                        ];
+                                        
+                                        if (isset($teamImageMap[$team]) && isset($leagueMap[$league])) {
+                                            $fallbackImage = "images/jerseys/{$leagueMap[$league]}/{$teamImageMap[$team]}";
+                                        }
+                                        
+                                        // Use database image if available, otherwise use fallback
+                                        $imageUrl = $jersey->image_url && !str_contains($jersey->image_url, 'placeholder') 
+                                                   ? $jersey->image_url 
+                                                   : ($fallbackImage ? asset($fallbackImage) : asset('images/default-jersey.jpg'));
+                                    @endphp
+                                    
+                                    <img src="{{ $imageUrl }}" 
                                          alt="{{ $jersey->name }}" 
-                                         class="product-image w-100">
+                                         class="product-image w-100"
+                                         onerror="this.src='{{ asset('images/default-jersey.jpg') }}'">
                                 </a>
                                 @if($jersey->is_featured)
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-2">Featured</span>
