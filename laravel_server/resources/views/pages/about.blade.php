@@ -157,7 +157,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="team-card text-center">
                         <div class="team-image mb-3">
-                            <img src="https://via.placeholder.com/200x200/007bff/ffffff?text=MD" alt="Managing Director" class="rounded-circle">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.3vhgjrTwBNxrVsWpd3c8twHaFT?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Managing Director" class="rounded-circle">
                         </div>
                         <h5>Marc Dubois</h5>
                         <p class="text-muted">Managing Director</p>
@@ -167,7 +167,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="team-card text-center">
                         <div class="team-image mb-3">
-                            <img src="https://via.placeholder.com/200x200/28a745/ffffff?text=SL" alt="Sales Lead" class="rounded-circle">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.0tOKEbpH99_7EIVHSGiKEQHaE7?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sales Lead" class="rounded-circle">
                         </div>
                         <h5>Sophie Laurent</h5>
                         <p class="text-muted">Head of Sales</p>
@@ -177,7 +177,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="team-card text-center">
                         <div class="team-image mb-3">
-                            <img src="https://via.placeholder.com/200x200/dc3545/ffffff?text=LM" alt="Operations Manager" class="rounded-circle">
+                            <img src="https://f.maformation.fr/edito/sites/3/2020/07/directeur-general.jpeg" alt="Operations Manager" class="rounded-circle">
                         </div>
                         <h5>Lucas Martinez</h5>
                         <p class="text-muted">Operations Manager</p>
@@ -199,22 +199,22 @@
                     </p>
                     <div class="row text-center align-items-center">
                         <div class="col-lg-2 col-md-4 col-6 mb-3">
-                            <img src="https://via.placeholder.com/120x60/000000/ffffff?text=NIKE" alt="Nike" class="img-fluid partner-logo">
+                            <img src="https://th.bing.com/th/id/R.5a54ed8571a62fb031d256087797c21b?rik=O81X%2fbvOUZuE2g&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2015%2f12%2fnike-logo-wallpapers-white-black.jpg&ehk=OS8whl5LL8mGvd2rrN9gSVQTttmuXNkqsxEUEoaQG84%3d&risl=&pid=ImgRaw&r=0" alt="Nike" class="img-fluid partner-logo">
                         </div>
                         <div class="col-lg-2 col-md-4 col-6 mb-3">
-                            <img src="https://via.placeholder.com/120x60/000000/ffffff?text=ADIDAS" alt="Adidas" class="img-fluid partner-logo">
+                            <img src="https://static.vecteezy.com/system/resources/previews/019/766/237/original/adidas-logo-adidas-icon-transparent-free-png.png" alt="Adidas" class="img-fluid partner-logo">
                         </div>
                         <div class="col-lg-2 col-md-4 col-6 mb-3">
-                            <img src="https://via.placeholder.com/120x60/000000/ffffff?text=PUMA" alt="Puma" class="img-fluid partner-logo">
+                            <img src="https://th.bing.com/th/id/R.b37bf719a0579692841d1b15ba99199e?rik=KJqlm%2b%2fJPs7QGQ&riu=http%3a%2f%2flofrev.net%2fwp-content%2fphotos%2f2016%2f06%2fpuma-logo-1-1.jpg&ehk=nQJkwEjVBfLmoRK2H6jFLTeoo9R%2fqJnlSjHV69f5E%2fE%3d&risl=&pid=ImgRaw&r=0" alt="Puma" class="img-fluid partner-logo">
                         </div>
                         <div class="col-lg-2 col-md-4 col-6 mb-3">
-                            <img src="https://via.placeholder.com/120x60/000000/ffffff?text=UMBRO" alt="Umbro" class="img-fluid partner-logo">
+                            <img src="https://logos-world.net/wp-content/uploads/2023/01/Umbro-Logo-1980.png" alt="Umbro" class="img-fluid partner-logo">
                         </div>
                         <div class="col-lg-2 col-md-4 col-6 mb-3">
-                            <img src="https://via.placeholder.com/120x60/000000/ffffff?text=KAPPA" alt="Kappa" class="img-fluid partner-logo">
+                            <img src="https://logo-marque.com/wp-content/uploads/2021/01/Kappa-Symbole.jpg" alt="Kappa" class="img-fluid partner-logo">
                         </div>
                         <div class="col-lg-2 col-md-4 col-6 mb-3">
-                            <img src="https://via.placeholder.com/120x60/000000/ffffff?text=MACRON" alt="Macron" class="img-fluid partner-logo">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.QZsCoVhpaJHVrRTR3kmFTAHaHl?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Macron" class="img-fluid partner-logo">
                         </div>
                     </div>
                 </div>
