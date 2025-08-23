@@ -13,19 +13,39 @@ class JerseyController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Jersey::active()->with('category');
+        // Get all categories for filter
+        $categories = Category::where('is_active', true)->get();
+        
+        // Get distinct leagues from jerseys table
+        $leagues = Jersey::where('is_active', true)
+            ->select('league')
+            ->distinct()
+            ->whereNotNull('league')
+            ->orderBy('league')
+            ->pluck('league');
+        
+        // Get distinct teams from jerseys table
+        $teams = Jersey::where('is_active', true)
+            ->select('team')
+            ->distinct()
+            ->whereNotNull('team')
+            ->orderBy('team')
+            ->pluck('team');
+
+        // Build query for jerseys
+        $query = Jersey::where('is_active', true)->with('category');
 
         // Apply filters
         if ($request->filled('category')) {
             $query->where('category_id', $request->category);
         }
 
-        if ($request->filled('team')) {
-            $query->where('team', $request->team);
-        }
-
         if ($request->filled('league')) {
             $query->where('league', $request->league);
+        }
+
+        if ($request->filled('team')) {
+            $query->where('team', $request->team);
         }
 
         if ($request->filled('type')) {
@@ -40,7 +60,18 @@ class JerseyController extends Controller
             $query->where('price', '<=', $request->max_price);
         }
 
-        // Sorting
+        // Apply search if provided
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'LIKE', "%{$search}%")
+                  ->orWhere('team', 'LIKE', "%{$search}%")
+                  ->orWhere('league', 'LIKE', "%{$search}%")
+                  ->orWhere('player_name', 'LIKE', "%{$search}%");
+            });
+        }
+
+        // Apply sorting
         $sort = $request->get('sort', 'newest');
         switch ($sort) {
             case 'price_asc':
@@ -52,18 +83,16 @@ class JerseyController extends Controller
             case 'name':
                 $query->orderBy('name', 'asc');
                 break;
+            case 'newest':
             default:
                 $query->orderBy('created_at', 'desc');
+                break;
         }
 
+        // Paginate results
         $jerseys = $query->paginate(12);
-        $categories = Category::active()->get();
-        
-        // Get unique values for filters
-        $teams = Jersey::active()->distinct('team')->pluck('team');
-        $leagues = Jersey::active()->distinct('league')->pluck('league');
 
-        return view('Jersey.index', compact('jerseys', 'categories', 'teams', 'leagues'));
+        return view('Jersey.index', compact('jerseys', 'categories', 'leagues', 'teams'));
     }
 
     /**
@@ -71,19 +100,21 @@ class JerseyController extends Controller
      */
     public function show($id)
     {
-        $jersey = Jersey::active()->with('category')->findOrFail($id);
+        $jersey = Jersey::where('is_active', true)
+            ->with('category')
+            ->findOrFail($id);
         
-        // Get related jerseys
-        $relatedJerseys = Jersey::active()
+        // Get related jerseys (same team or league)
+        $relatedJerseys = Jersey::where('is_active', true)
             ->where('id', '!=', $jersey->id)
-            ->where(function($query) use ($jersey) {
+            ->where(function ($query) use ($jersey) {
                 $query->where('team', $jersey->team)
-                      ->orWhere('category_id', $jersey->category_id);
+                      ->orWhere('league', $jersey->league);
             })
             ->limit(4)
             ->get();
 
-        return view('jerseys.show', compact('jersey', 'relatedJerseys'));
+        return view('Jersey.show', compact('jersey', 'relatedJerseys'));
     }
 
     /**
@@ -91,8 +122,17 @@ class JerseyController extends Controller
      */
     public function featured()
     {
-        $jerseys = Jersey::active()->featured()->paginate(12);
-        return view('Jersey.featured', compact('jerseys'));
+        return view('Jersey.featured');
+    }
+
+    /**
+     * Quick view for AJAX requests
+     */
+    public function quickView($id)
+    {
+        $jersey = Jersey::where('is_active', true)->findOrFail($id);
+        $html = view('Jersey.partials.quick-view', compact('jersey'))->render();
+        return response()->json(['html' => $html]);
     }
 
     /**
@@ -102,26 +142,24 @@ class JerseyController extends Controller
     {
         $query = $request->get('q');
         
-        $jerseys = Jersey::active()
+        if (empty($query)) {
+            return redirect()->route('jerseys.index');
+        }
+
+        $jerseys = Jersey::where('is_active', true)
             ->where(function($q) use ($query) {
-                $q->where('name', 'like', "%{$query}%")
-                  ->orWhere('team', 'like', "%{$query}%")
-                  ->orWhere('player_name', 'like', "%{$query}%")
-                  ->orWhere('description', 'like', "%{$query}%");
+                $q->where('name', 'LIKE', "%{$query}%")
+                  ->orWhere('team', 'LIKE', "%{$query}%")
+                  ->orWhere('league', 'LIKE', "%{$query}%")
+                  ->orWhere('player_name', 'LIKE', "%{$query}%")
+                  ->orWhere('description', 'LIKE', "%{$query}%");
             })
             ->paginate(12);
 
-        return view('jerseys.search', compact('jerseys', 'query'));
-    }
+        $categories = Category::where('is_active', true)->get();
+        $leagues = Jersey::where('is_active', true)->select('league')->distinct()->orderBy('league')->pluck('league');
+        $teams = Jersey::where('is_active', true)->select('team')->distinct()->orderBy('team')->pluck('team');
 
-    /**
-     * Quick view for AJAX requests
-     */
-    public function quickView($id)
-    {
-        $jersey = Jersey::active()->findOrFail($id);
-        return response()->json([
-            'html' => view('jerseys.partials.quick-view', compact('jersey'))->render()
-        ]);
+        return view('Jersey.index', compact('jerseys', 'categories', 'leagues', 'teams'));
     }
 }

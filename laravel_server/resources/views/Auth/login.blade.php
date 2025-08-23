@@ -133,7 +133,7 @@
                             <h6 class="alert-heading">Demo Credentials:</h6>
                             <small>
                                 <strong>User:</strong> user@example.com / password<br>
-                                <strong>Admin:</strong> admin@jerseyshop.com / admin123
+                                <strong>Admin:</strong> admin@ehb.be / Password!321
                             </small>
                         </div>
                     @endif

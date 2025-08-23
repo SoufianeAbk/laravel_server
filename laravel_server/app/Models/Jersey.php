@@ -20,96 +20,68 @@ class Jersey extends Model
         'player_name',
         'player_number',
         'type',
-        'sizes',
         'stock_quantity',
         'is_featured',
-        'is_active',
-        'category_id'
+        'category_id',
     ];
 
     protected $casts = [
-        'sizes' => 'array',
         'price' => 'decimal:2',
         'is_featured' => 'boolean',
-        'is_active' => 'boolean',
+        'stock_quantity' => 'integer',
     ];
 
-    // Relationships
+    // Relationship with Category
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function orderItems()
-    {
-        return $this->hasMany(OrderItem::class);
-    }
-
-    public function carts()
-    {
-        return $this->hasMany(Cart::class);
-    }
-
-    public function wishlists()
-    {
-        return $this->hasMany(Wishlist::class);
-    }
-
-    // Scopes - ✅ ALREADY PRESENT AND CORRECT
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', true);
-    }
-
-    public function scopeFeatured($query)
-    {
-        return $query->where('is_featured', true);
-    }
-
-    public function scopeByTeam($query, $team)
-    {
-        return $query->where('team', $team);
-    }
-
-    public function scopeByLeague($query, $league)
-    {
-        return $query->where('league', $league);
-    }
-
-    public function scopeByType($query, $type)
-    {
-        return $query->where('type', $type);
-    }
-
-    public function scopeInStock($query)
-    {
-        return $query->where('stock_quantity', '>', 0);
-    }
-
-    // Accessors
+    // Accessor for formatted price
     public function getFormattedPriceAttribute()
     {
         return '€' . number_format($this->price, 2);
     }
 
+    // Accessor for available sizes
     public function getAvailableSizesAttribute()
     {
-        return $this->sizes ?? ['S', 'M', 'L', 'XL', 'XXL'];
+        return ['S', 'M', 'L', 'XL', 'XXL'];
     }
 
-    // Methods
-    public function isInStock()
+    // Scope for active jerseys
+    public function scopeActive($query)
     {
-        return $this->stock_quantity > 0;
+        return $query->where('is_active', true);
     }
 
-    public function decrementStock($quantity = 1)
+    // Scope for featured jerseys
+    public function scopeFeatured($query)
     {
-        $this->decrement('stock_quantity', $quantity);
+        return $query->where('is_featured', true);
     }
 
-    public function incrementStock($quantity = 1)
+    // Scope for in stock jerseys
+    public function scopeInStock($query)
     {
-        $this->increment('stock_quantity', $quantity);
+        return $query->where('stock_quantity', '>', 0);
+    }
+
+    // Scope for specific league
+    public function scopeByLeague($query, $league)
+    {
+        return $query->where('league', $league);
+    }
+
+    // Scope for specific team
+    public function scopeByTeam($query, $team)
+    {
+        return $query->where('team', $team);
+    }
+
+    // Scope for specific type
+    public function scopeByType($query, $type)
+    {
+        return $query->where('type', $type);
     }
 }

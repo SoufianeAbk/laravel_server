@@ -14,15 +14,15 @@ class HomeController extends Controller
     public function index()
     {
         // Get featured jerseys (limit to 4 for home page display)
-        $featuredJerseys = Jersey::active()
-            ->featured()
+        $featuredJerseys = Jersey::where('is_active', true)
+            ->where('is_featured', true)
             ->with('category')
             ->limit(4)
             ->get();
         
         // Fallback: Get latest jerseys if no featured jerseys exist
         if ($featuredJerseys->isEmpty()) {
-            $featuredJerseys = Jersey::active()
+            $featuredJerseys = Jersey::where('is_active', true)
                 ->with('category')
                 ->orderBy('created_at', 'desc')
                 ->limit(4)
@@ -30,7 +30,7 @@ class HomeController extends Controller
         }
         
         // Get latest jerseys for additional sections
-        $latestJerseys = Jersey::active()
+        $latestJerseys = Jersey::where('is_active', true)
             ->with('category')
             ->orderBy('created_at', 'desc')
             ->limit(8)
@@ -54,13 +54,13 @@ class HomeController extends Controller
         ];
         
         // Get categories
-        $categories = Category::active()->get();
+        $categories = Category::where('is_active', true)->get();
         
         // Get statistics for display
         $stats = [
-            'total_jerseys' => Jersey::active()->count(),
-            'total_teams' => Jersey::active()->distinct('team')->count('team'),
-            'total_leagues' => Jersey::active()->distinct('league')->count('league'),
+            'total_jerseys' => Jersey::where('is_active', true)->count(),
+            'total_teams' => Jersey::where('is_active', true)->distinct('team')->count('team'),
+            'total_leagues' => Jersey::where('is_active', true)->distinct('league')->count('league'),
             'happy_customers' => 15000, // This would come from orders/reviews in real app
         ];
         
