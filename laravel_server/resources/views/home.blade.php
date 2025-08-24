@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800" 
+                <img src="https://images.unsplash.com/photo-1708577907839-1240466aee53?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                      alt="Football Jersey" class="img-fluid rounded">
             </div>
         </div>
@@ -70,6 +70,52 @@
                 <a href="{{ route('jerseys.index') }}" class="btn btn-outline-primary btn-lg">View All Jerseys</a>
             </div>
         @endif
+    </div>
+</section>
+
+if(isset($nationalTeamJerseys) && $nationalTeamJerseys->count() > 0)
+<!-- National Teams Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">National Team Jerseys</h2>
+        
+        <div class="row g-4">
+            @foreach($nationalTeamJerseys as $jersey)
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card h-100">
+                        <div class="product-image-wrapper">
+                            <a href="{{ route('jerseys.show', $jersey->id) }}">
+                                <img src="{{ $jersey->image_url ?: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800' }}" 
+                                     alt="{{ $jersey->name }}" 
+                                     class="product-image w-100">
+                            </a>
+                            @if($jersey->is_featured)
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">Featured</span>
+                            @endif
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">
+                                <a href="{{ route('jerseys.show', $jersey->id) }}">{{ $jersey->name }}</a>
+                            </h5>
+                            <p class="product-team">{{ $jersey->team }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">{{ $jersey->formatted_price }}</span>
+                                <button class="btn btn-sm btn-danger add-to-cart" 
+                                        data-id="{{ $jersey->id }}">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{{ route('jerseys.index', ['league' => 'International']) }}" class="btn btn-outline-primary btn-lg">
+                View All National Team Jerseys
+            </a>
+        </div>
     </div>
 </section>
 

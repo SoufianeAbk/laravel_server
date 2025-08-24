@@ -47,18 +47,30 @@ class CartController extends Controller
             ], 400);
         }
 
-        $cartItem = Cart::updateOrCreate(
-            [
+        // Check if item already exists in cart
+        $existingCartItem = Cart::where('user_id', Auth::id())
+            ->where('session_id', Auth::check() ? null : Session::getId())
+            ->where('jersey_id', $jersey->id)
+            ->where('size', $request->size)
+            ->first();
+
+        if ($existingCartItem) {
+            // Update quantity if item exists
+            $existingCartItem->update([
+                'quantity' => $existingCartItem->quantity + $request->quantity,
+                'price' => $jersey->price
+            ]);
+        } else {
+            // Create new cart item
+            Cart::create([
                 'user_id' => Auth::id(),
                 'session_id' => Auth::check() ? null : Session::getId(),
                 'jersey_id' => $jersey->id,
-                'size' => $request->size
-            ],
-            [
-                'quantity' => \DB::raw('quantity + ' . $request->quantity),
+                'size' => $request->size,
+                'quantity' => $request->quantity,
                 'price' => $jersey->price
-            ]
-        );
+            ]);
+        }
 
         $cartCount = $this->getCartCount();
 
