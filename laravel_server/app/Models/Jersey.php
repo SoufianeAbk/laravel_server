@@ -22,12 +22,14 @@ class Jersey extends Model
         'type',
         'stock_quantity',
         'is_featured',
+        'is_active',
         'category_id',
     ];
 
     protected $casts = [
         'price' => 'decimal:2',
         'is_featured' => 'boolean',
+        'is_active' => 'boolean',
         'stock_quantity' => 'integer',
     ];
 
@@ -83,5 +85,34 @@ class Jersey extends Model
     public function scopeByType($query, $type)
     {
         return $query->where('type', $type);
+    }
+
+    /**
+     * Decrease stock quantity by specified amount
+     */
+    public function decrementStock($quantity)
+    {
+        if ($this->stock_quantity >= $quantity) {
+            $this->decrement('stock_quantity', $quantity);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Increase stock quantity by specified amount
+     */
+    public function incrementStock($quantity)
+    {
+        $this->increment('stock_quantity', $quantity);
+        return true;
+    }
+
+    /**
+     * Check if jersey is in stock
+     */
+    public function isInStock($quantity = 1)
+    {
+        return $this->stock_quantity >= $quantity;
     }
 }

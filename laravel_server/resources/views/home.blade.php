@@ -73,8 +73,8 @@
     </div>
 </section>
 
-if(isset($nationalTeamJerseys) && $nationalTeamJerseys->count() > 0)
 <!-- National Teams Section -->
+@if(isset($nationalTeamJerseys) && $nationalTeamJerseys->count() > 0)
 <section class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-5">National Team Jerseys</h2>
@@ -118,6 +118,7 @@ if(isset($nationalTeamJerseys) && $nationalTeamJerseys->count() > 0)
         </div>
     </div>
 </section>
+@endif
 
 <!-- Popular Teams -->
 <section class="py-5 bg-light">

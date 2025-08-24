@@ -12,6 +12,13 @@ class Category extends Model
     protected $fillable = [
         'name',
         'slug',
+        'description',
+        'image_url',
+        'is_active',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
     ];
 
     // Relationship with jerseys

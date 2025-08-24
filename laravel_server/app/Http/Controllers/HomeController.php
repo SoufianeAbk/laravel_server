@@ -36,6 +36,13 @@ class HomeController extends Controller
             ->limit(8)
             ->get();
         
+        // Get national team jerseys (International league)
+        $nationalTeamJerseys = Jersey::where('is_active', true)
+            ->where('league', 'International')
+            ->with('category')
+            ->limit(4)
+            ->get();
+        
         // Get popular teams for the popular teams section
         $popularTeams = [
             'Real Madrid', 'Barcelona', 'Manchester United', 'Liverpool', 
@@ -67,6 +74,7 @@ class HomeController extends Controller
         return view('home', compact(
             'featuredJerseys',
             'latestJerseys',
+            'nationalTeamJerseys',
             'popularTeams',
             'leagues',
             'categories',

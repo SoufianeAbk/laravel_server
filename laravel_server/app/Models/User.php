@@ -55,4 +55,28 @@ class User extends Authenticatable
     {
         return $this->is_admin ?? false;
     }
+
+    /**
+     * Get user's orders
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
+     * Get user's cart items
+     */
+    public function cartItems()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    /**
+     * Get user's wishlist items
+     */
+    public function wishlistItems()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }
