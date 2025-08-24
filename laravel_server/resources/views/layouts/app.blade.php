@@ -126,20 +126,6 @@
         }
     </style>
 </head>
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-        Leagues
-    </a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Premier League']) }}">Premier League</a></li>
-        <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'La Liga']) }}">La Liga</a></li>
-        <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Serie A']) }}">Serie A</a></li>
-        <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Bundesliga']) }}">Bundesliga</a></li>
-        <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Ligue 1']) }}">Ligue 1</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'International']) }}">National Teams</a></li>
-    </ul>
-</li>
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
@@ -159,18 +145,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('jerseys.featured') }}">Featured</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            Leagues
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Premier League']) }}">Premier League</a></li>
-                            <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'La Liga']) }}">La Liga</a></li>
-                            <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Serie A']) }}">Serie A</a></li>
-                            <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Bundesliga']) }}">Bundesliga</a></li>
-                            <li><a class="dropdown-item" href="{{ route('jerseys.index', ['league' => 'Ligue 1']) }}">Ligue 1</a></li>
-                        </ul>
                     </li>
                 </ul>
                 

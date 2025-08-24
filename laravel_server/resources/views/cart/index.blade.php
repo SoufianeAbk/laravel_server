@@ -221,7 +221,7 @@
                         @for($i = 1; $i <= 4; $i++)
                             <div class="col-md-6 col-lg-3">
                                 <div class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" 
+                                    <img src="https://images.unsplash.com/photo-1668791160369-d20b8175eab2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                                          alt="Jersey" class="product-image w-100">
                                     <div class="product-info">
                                         <h6>Sample Jersey {{ $i }}</h6>
